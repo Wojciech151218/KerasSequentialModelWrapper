@@ -47,7 +47,7 @@ class ModelTrainer:
 
         lr_finder = AutoLRFinder(min_lr, max_lr, steps)
         model.compile(
-            optimizer=train_hp.get_optimizer(),
+            optimizer=train_hp.optimizer(min_lr),
             loss=train_hp.loss_function,
             metrics=train_hp.metrics,
         )
