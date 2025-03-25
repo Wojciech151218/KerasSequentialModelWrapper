@@ -127,4 +127,4 @@ Check out `example.ipynb` in the repository for a hands-on implementation, inclu
 
 ## License
 This library follows the MIT License. You are free to use, modify, and distribute it as per the terms of the license.
-This **README.md** provides a structured guide for users, detailing setup, usage, and customization of the library. Let me know if you'd like further refinements!
+
