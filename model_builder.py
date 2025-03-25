@@ -1,7 +1,7 @@
 from abc import abstractmethod
 
-from hyperparamaters import ArchitectureHyperparameters, TrainHyperparameters
-from model_trainer import ModelTrainer
+from .hyperparamaters import ArchitectureHyperparameters, TrainHyperparameters
+from .model_trainer import ModelTrainer
 import tensorflow as tf
 
 class ModelBuilder:

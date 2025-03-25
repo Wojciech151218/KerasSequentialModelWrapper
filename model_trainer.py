@@ -1,7 +1,6 @@
-import tensorflow as tf
-from keras.src.utils import to_categorical
 
-from hyperparamaters import ArchitectureHyperparameters, TrainHyperparameters
+
+from .hyperparamaters import TrainHyperparameters
 
 
 class ModelTrainer:
