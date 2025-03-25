@@ -17,10 +17,6 @@ class ModelTrainer:
         return self.x_train.shape[1:]
 
 
-    def get_classes(self):
-        return self.y_train.shape[1]
-
-
     def adapt(self, layer):
         layer.adapt(self.x_train)
 
