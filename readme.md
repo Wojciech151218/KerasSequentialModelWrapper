@@ -1,4 +1,4 @@
-# Keras Wrapper Library
+# Keras Sequential Model Wrapper Library
 This small wrapper library simplifies the process of building, training, and using Keras sequential models but could be used for graph models as well.
 - Building models based on customizable architecture and training hyperparameters.
 - Training models with preconfigured settings, reducing boilerplate code.
@@ -36,16 +36,14 @@ Clone or download the library files into your project directory.
 ## Usage
 Here’s a step-by-step guide to use the library for defining and training a model.
 ### Setup and Initialization
-1. Import the required components.
+Import the required components.
 ``` python
 from hyperparamaters import TrainHyperparameters, ArchitectureHyperparameters
 from model_builder import ModelBuilder
 import tensorflow as tf
 ```
-# Defining models architecture and data preprocessing
-1. Example on MNIST dataset:
+# Example on MNIST dataset:
 
-```
 ### Defining the Model Architecture
 Subclass `ModelBuilder` to define your custom architecture. For example:
 ``` python
@@ -85,7 +83,7 @@ architecture_hp = ArchitectureHyperparameters(
     activation_function="relu"  # Activation function for hidden layers
 )
 ```
-1. Define training hyperparameters:
+2. Define training hyperparameters:
 ``` python
 train_hp = TrainHyperparameters(
     learning_rate=0.001,  # Learning rate for the optimizer
@@ -95,7 +93,7 @@ train_hp = TrainHyperparameters(
     metrics=["accuracy"]  # List of metrics to track
 )
 ```
-1. Build the model and start training:
+3. Build the model and start training:
 ``` python
 model_builder = (
     MyModelBuilder()
@@ -109,7 +107,7 @@ model = model_builder.build_model()
 ``` python
 x_test, y_test = model_builder.get_test_set()
 ```
-1. Evaluate predictions for a single data point:
+2. Evaluate predictions for a single data point:
 ``` python
 sample_index = 0
 sample_x = tf.expand_dims(x_test[sample_index], axis=0)  # Add batch dimension
