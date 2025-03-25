@@ -6,7 +6,6 @@ class TrainHyperparameters:
             learning_rate=0.001,
             epochs=10,
             optimizer=tf.keras.optimizers.Adam,
-            weight_initializer=tf.keras.initializers.GlorotUniform(),
             learning_rate_schedule=None,  # Optional learning rate harmonogram
             batch_size=32,
             loss_function="categorical_crossentropy",
@@ -28,7 +27,6 @@ class TrainHyperparameters:
         self.learning_rate = learning_rate
         self.epochs = epochs
         self.optimizer = optimizer
-        self.weight_initializer = weight_initializer
         self.learning_rate_schedule = learning_rate_schedule
         self.batch_size = batch_size
         self.loss_function = loss_function
@@ -53,6 +51,7 @@ class ArchitectureHyperparameters:
             neurons_per_layer_count = 50,
             layer_count = 3,
             activation_function = "relu",
+            kernel_initializer = tf.keras.initializers.GlorotUniform(),
             ):
         if neurons_per_layer is None:
             self.neurons_per_layer = [neurons_per_layer_count for i in range(layer_count)]
@@ -63,3 +62,4 @@ class ArchitectureHyperparameters:
             self.layer_count = len(neurons_per_layer)
             self.neurons_per_layer_count = None
         self.activation_function = activation_function
+        self.kernel_initializer = kernel_initializer
