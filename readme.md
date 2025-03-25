@@ -102,7 +102,7 @@ model_builder = (
 )
 model = model_builder.build_model()
 ```
-### Evaluating Individual Predictions
+### Evaluating Predictions
 1. Retrieve the test dataset:
 ``` python
 x_test, y_test = model_builder.get_test_set()
