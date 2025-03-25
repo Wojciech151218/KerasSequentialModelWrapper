@@ -42,7 +42,7 @@ class ModelTrainer:
             self,
             model,
             train_hp :TrainHyperparameters,
-            min_lr=1e-7, max_lr=1, steps=100
+            min_lr=1e-7, max_lr=1, steps=200
         ):
 
         lr_finder = AutoLRFinder(min_lr, max_lr, steps)
