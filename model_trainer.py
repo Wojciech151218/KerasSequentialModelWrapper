@@ -1,5 +1,8 @@
 import math
 
+import numpy as np
+from keras_lr_finder import LRFinder
+
 from .hyperparamaters import TrainHyperparameters
 from .auto_lr_finder import AutoLRFinder
 import tensorflow as tf
@@ -54,11 +57,10 @@ class ModelTrainer:
         model.fit(
             self.x_train,
             self.y_train,
-            epochs=1,
+            epochs=3,
             validation_data=(self.x_test, self.y_test),
             callbacks=[lr_finder],
-            batch_size = 128,
-            verbose= 1
+            batch_size = 64,
         )
         lr_finder.plot()
         return lr_finder.find_optimal_lr()
