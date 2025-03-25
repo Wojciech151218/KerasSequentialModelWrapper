@@ -34,13 +34,12 @@ class AutoLRFinder(tf.keras.callbacks.Callback):
         loss_arr = np.array(self.losses)
         lr_arr = np.array(self.lrs)
 
-        loss_gradient = np.gradient(loss_arr)
-        min_grad_idx = np.argmin(loss_gradient)
+        #loss_gradient = np.gradient(loss_arr)
+        #min_grad_idx = np.argmin(loss_gradient)
 
-        #smallest_loss_idx = np.argmin(loss_arr)
+        smallest_loss_idx = np.argmin(loss_arr)
 
-        # Choose a slightly lower learning rate for stability
-        self.best_lr = lr_arr[min_grad_idx] / 10  # Picking 10x lower than the steepest drop
+        self.best_lr = lr_arr[smallest_loss_idx] / 10
 
         return self.best_lr
 
