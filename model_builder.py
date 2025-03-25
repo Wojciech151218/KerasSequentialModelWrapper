@@ -38,6 +38,10 @@ class ModelBuilder:
             self.model_trainer = model_trainer
         return self
 
+    def set_callbacks(self,callbacks):
+        self.callbacks = callbacks
+        return self
+
 
 
     def build_model(self,model = None):
