@@ -43,15 +43,28 @@ class ModelBuilder:
     def build_model(self,model = None):
         if model is None:
             model = self.model_building_function(self.architecture_hp)
-            self.model_trainer.train_model(
-                model = model,
-                train_hp= self.train_hp,
-                callbacks = self.callbacks
-            )
-            return model
-        else:
-            self.model_trainer.train_model(
-                model = model,
-                train_hp= self.train_hp,
-            )
-            return model
+
+        self.model_trainer.train_model(
+            model = model,
+            train_hp= self.train_hp,
+            callbacks = self.callbacks
+        )
+        return model
+
+
+    def find_hp_learning_rate(
+            self,
+            model = None,
+            min_lr=1e-7, max_lr=1, steps=100
+    ):
+        if model is None:
+            model = self.model_building_function(self.architecture_hp)
+
+        learning_rate = self.model_trainer.find_learning_rate(
+            model = model,
+            train_hp = self.train_hp,
+            min_lr=min_lr, max_lr=max_lr, steps=steps
+        )
+
+        self.train_hp.learning_rate = learning_rate
+        return self.train_hp
