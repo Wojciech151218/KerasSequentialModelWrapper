@@ -47,9 +47,9 @@ class TrainHyperparameters:
 class ArchitectureHyperparameters:
     def __init__(
             self,
-            neurons_per_layer = None,
-            neurons_per_layer_count = 50,
-            layer_count = 3,
+            neurons_per_layer : [int] = None,
+            neurons_per_layer_count : int = 50,
+            layer_count :int = 3,
             activation_function = "relu",
             kernel_initializer = tf.keras.initializers.GlorotUniform(),
             ):
